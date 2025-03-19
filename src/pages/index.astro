@@ -1,11 +1,66 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Welcome from "../components/Welcome.astro";
+import Layout from "../layouts/Layout.astro";
+import HeaderSection from "../components/HeaderSection.astro";
+import Item from "../components/Item.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+  <nav
+    class="width-full bg-indigo-700 text-white font-bold flex justify-end py-4 px-6"
+  >
+    <div>
+      <span
+        class="material-symbols-outlined hover:text-gray-300 cursor-pointer"
+      >
+        menu
+      </span>
+    </div>
+  </nav>
+  <main class="p-4 width-full">
+    <form action="" class="width-full flex flex-col gap-3">
+      <input
+        type="search"
+        name=""
+        id=""
+        placeholder="Buscar"
+        class="border rounded-lg text-lg px-3 py-1 width-full"
+      />
+      <div class="flex flex-row overflow-x-auto gap-3" id="categories">
+				
+        <label class="bg-gray-300 has-checked:bg-gray-500 has-checked:text-white rounded-lg px-3 py-1 cursor-pointer">
+          <input
+            type="checkbox"
+            name=""
+            id=""
+            class="appearance-none "
+          />
+          Plazas
+        </label>
+      </div>
+    </form>
+
+    <section>
+      <HeaderSection title="Lugares Cercanos"/>
+      <div id="near_places">
+        <!-- Aqui iran los lugares cercanos-->
+				<Item />
+      </div>
+    </section>
+    <section>
+      <HeaderSection title="Lugares con Mayor Disponiblidad"/>
+      <div id="places_allowed">
+        <!-- Aqui iran los elementos que tengan mayor disponibilidad-->
+      </div>
+    </section>
+    <section>
+      <HeaderSection title="Lugares Recomendados"/>
+      <div id="places_recommended">
+        <!-- Aqui iran los elementos mas recomendados-->
+      </div>
+    </section>
+  </main>
 </Layout>

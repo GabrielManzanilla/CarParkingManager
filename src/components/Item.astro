@@ -1,0 +1,75 @@
+---
+
+---
+
+<div
+  class="border flex flex-row justify-between items-center p-4 shadow-md gap-3"
+>
+  <div class="progress-circle">
+    <svg viewBox="0 0 36 36" class="circular-chart">
+      <!-- Fondo gris -->
+      <path class="circle-bg" d="M18 2.0845
+							 a 15.9155 15.9155 0 1 1 -0.0001 0"
+      ></path>
+      <!-- Círculo de progreso -->
+      <path
+        class="circle"
+        stroke-dasharray="40, 100"
+        d="M18 2.0845
+							 a 15.9155 15.9155 0 1 1 -0.0001 0"></path>
+    </svg>
+    <div class="percentage">40%</div>
+  </div>
+  <div class="flex flex-col items-start">
+    <p class="text-md">Lugar de Prueba</p>
+    <p class="text-sm text-gray-500">
+      Calle 14 #70 X20 Circuito Colonias, 97158 Mérida, Yucatán
+    </p>
+		
+  </div>
+	<div class="flex flex-col items-center text-indigo-700 group relative">
+		<span class="material-symbols-outlined text-2xl">location_on</span>
+		<a href="" class="text-center" title="Ver ubicación">Maps</a>
+		<span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+			Ver ubicación
+		</span>
+	</div>
+</div>
+
+<style>
+  .progress-circle {
+    height: 50px;
+    position: relative;
+    aspect-ratio: 1;
+    max-height: 100px;
+  }
+
+  .circular-chart {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg); /* Para que comience en la parte superior */
+  }
+
+  .circle-bg {
+    fill: none;
+    stroke: #dcdcdc; /* Color del fondo */
+    stroke-width: 3.8;
+  }
+
+  .circle {
+    fill: none;
+    stroke: oklch(0.457 0.24 277.023); /* Color del progreso */
+    stroke-width: 3.8;
+    stroke-linecap: round; /* Extremos redondeados */
+    transition: stroke-dasharray 0.3s ease;
+  }
+
+  .percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+    color: oklch(0.457 0.24 277.023);
+  }
+</style>
