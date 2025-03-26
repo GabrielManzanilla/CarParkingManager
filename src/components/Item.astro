@@ -1,9 +1,9 @@
 ---
-
+const { name, address, percentage, link_maps} = Astro.props
 ---
 
 <div
-  class="border flex flex-row justify-between items-center p-4 shadow-md gap-3"
+  class="border flex flex-row justify-between items-center p-4 shadow-md gap-3 w-full "
 >
   <div class="progress-circle">
     <svg viewBox="0 0 36 36" class="circular-chart">
@@ -14,22 +14,22 @@
       <!-- Círculo de progreso -->
       <path
         class="circle"
-        stroke-dasharray="40, 100"
+        stroke-dasharray=`${percentage}, 100`
         d="M18 2.0845
 							 a 15.9155 15.9155 0 1 1 -0.0001 0"></path>
     </svg>
-    <div class="percentage">40%</div>
+    <div class="percentage">{percentage}</div>
   </div>
-  <div class="flex flex-col items-start">
-    <p class="text-md">Lugar de Prueba</p>
+  <div class="flex flex-col items-start flex-1">
+    <p class="text-md">{name}</p>
     <p class="text-sm text-gray-500">
-      Calle 14 #70 X20 Circuito Colonias, 97158 Mérida, Yucatán
+      {address}
     </p>
 		
   </div>
 	<div class="flex flex-col items-center text-indigo-700 group relative">
 		<span class="material-symbols-outlined text-2xl">location_on</span>
-		<a href="" class="text-center" title="Ver ubicación">Maps</a>
+		<a href=`${link_maps}` class="text-center" title="Ver ubicación">Maps</a>
 		<span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity">
 			Ver ubicación
 		</span>

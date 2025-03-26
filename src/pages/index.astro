@@ -1,8 +1,11 @@
 ---
-import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
 import HeaderSection from "../components/HeaderSection.astro";
 import Item from "../components/Item.astro";
+import TagsFilters from "../components/TagsFilters.astro";
+
+import near_places from "../mocks/near_places.json";
+import places_allowed from "../mocks/tag_filters.json";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -30,37 +33,77 @@ import Item from "../components/Item.astro";
         class="border rounded-lg text-lg px-3 py-1 width-full"
       />
       <div class="flex flex-row overflow-x-auto gap-3" id="categories">
-				
-        <label class="bg-gray-300 has-checked:bg-gray-500 has-checked:text-white rounded-lg px-3 py-1 cursor-pointer">
-          <input
-            type="checkbox"
-            name=""
-            id=""
-            class="appearance-none "
-          />
-          Plazas
-        </label>
+        {places_allowed.map((tag) =>( <TagsFilters title={tag.title} />))}
       </div>
+      
     </form>
-
-    <section>
-      <HeaderSection title="Lugares Cercanos"/>
-      <div id="near_places">
-        <!-- Aqui iran los lugares cercanos-->
-				<Item />
-      </div>
-    </section>
-    <section>
-      <HeaderSection title="Lugares con Mayor Disponiblidad"/>
-      <div id="places_allowed">
-        <!-- Aqui iran los elementos que tengan mayor disponibilidad-->
-      </div>
-    </section>
-    <section>
-      <HeaderSection title="Lugares Recomendados"/>
-      <div id="places_recommended">
-        <!-- Aqui iran los elementos mas recomendados-->
-      </div>
-    </section>
   </main>
+
+  <section class="mx-2">
+    <HeaderSection title="Lugares Cercanos" />
+    <div
+      id="near_places"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-3 p-1"
+    >
+      <!-- Aqui iran los lugares cercanos-->
+      {
+        near_places
+          .map((place) => {
+            console.log(place.name)
+            if(place.name === "City Parking") {
+              <Item
+                name={place.name}
+                address={place.address}
+                percentage={place.percentage}
+                link_maps={place.link_maps}
+              />
+              
+            }
+          })
+          .slice(0,5)
+      }
+    </div>
+  </section>
+  <section class="ml-2 mr-2">
+    <HeaderSection title="Lugares con Mayor Disponiblidad" />
+    <div
+      id="places_allowed"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full columns-3 gap-3"
+    >
+      <!-- Aqui iran los elementos que tengan mayor disponibilidad-->
+      {
+        near_places
+          .map((place) => (
+            <Item
+              name={place.name}
+              address={place.address}
+              percentage={place.percentage}
+              link_maps={place.link_maps}
+            />
+          ))
+          .slice(7, 13)
+      }
+    </div>
+  </section>
+  <section>
+    <HeaderSection title="Lugares Recomendados" />
+    <div
+      id="places_recommended"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full columns-3 gap-3"
+    >
+      <!-- Aqui iran los elementos mas recomendados-->
+      {
+        near_places
+          .map((place) => (
+            <Item
+              name={place.name}
+              address={place.address}
+              percentage={place.percentage}
+              link_maps={place.link_maps}
+            />
+          ))
+          .slice(14, 20)
+      }
+    </div>
+  </section>
 </Layout>

@@ -1,0 +1,122 @@
+[
+	{
+		"name": "Parking Central",
+		"address": "Av. Principal 123",
+		"percentage": 85,
+		"link_maps": "https://www.google.com/maps/place/40.416775,-3.703790"
+	},
+	{
+		"name": "EstacionaMadrid",
+		"address": "Calle Mayor 45",
+		"percentage": 30,
+		"link_maps": "https://www.google.com/maps/place/40.417125,-3.704500"
+	},
+	{
+		"name": "Parking Plaza Mayor",
+		"address": "Plaza Mayor 1",
+		"percentage": 95,
+		"link_maps": "https://www.google.com/maps/place/40.415675,-3.707690"
+	},
+	{
+		"name": "AutoPark Express",
+		"address": "Gran Vía 67",
+		"percentage": 40,
+		"link_maps": "https://www.google.com/maps/place/40.420075,-3.705890"
+	},
+	{
+		"name": "Parking 24h",
+		"address": "Calle Alcalá 89",
+		"percentage": 65,
+		"link_maps": "https://www.google.com/maps/place/40.418875,-3.702190"
+	},
+	{
+		"name": "Metro Parking",
+		"address": "Calle Atocha 234",
+		"percentage": 55,
+		"link_maps": "https://www.google.com/maps/place/40.412375,-3.701290"
+	},
+	{
+		"name": "Parking Sol",
+		"address": "Puerta del Sol 2",
+		"percentage": 100,
+		"link_maps": "https://www.google.com/maps/place/40.417075,-3.703190"
+	},
+	{
+		"name": "Aparca Fácil",
+		"address": "Calle Preciados 56",
+		"percentage": 20,
+		"link_maps": "https://www.google.com/maps/place/40.418175,-3.704890"
+	},
+	{
+		"name": "Parking Gran Vía",
+		"address": "Gran Vía 123",
+		"percentage": 70,
+		"link_maps": "https://www.google.com/maps/place/40.419875,-3.706790"
+	},
+	{
+		"name": "City Parking",
+		"address": "Calle Fuencarral 78",
+		"percentage": 45,
+		"link_maps": "https://www.google.com/maps/place/40.421075,-3.703990"
+	},
+	{
+		"name": "Parking Retiro",
+		"address": "Parque del Retiro 1",
+		"percentage": 90,
+		"link_maps": "https://www.google.com/maps/place/40.415175,-3.682890"
+	},
+	{
+		"name": "Quick Park",
+		"address": "Calle Serrano 145",
+		"percentage": 35,
+		"link_maps": "https://www.google.com/maps/place/40.425675,-3.688790"
+	},
+	{
+		"name": "Parking VIP",
+		"address": "Paseo de la Castellana 89",
+		"percentage": 80,
+		"link_maps": "https://www.google.com/maps/place/40.431075,-3.691290"
+	},
+	{
+		"name": "Smart Parking",
+		"address": "Calle Velázquez 234",
+		"percentage": 60,
+		"link_maps": "https://www.google.com/maps/place/40.424875,-3.685490"
+	},
+	{
+		"name": "Parking Seguro",
+		"address": "Calle Goya 67",
+		"percentage": 25,
+		"link_maps": "https://www.google.com/maps/place/40.425175,-3.684890"
+	},
+	{
+		"name": "MaxiPark",
+		"address": "Calle Orense 123",
+		"percentage": 75,
+		"link_maps": "https://www.google.com/maps/place/40.445675,-3.695790"
+	},
+	{
+		"name": "Parking Express",
+		"address": "Calle Princesa 45",
+		"percentage": 50,
+		"link_maps": "https://www.google.com/maps/place/40.423475,-3.717890"
+	},
+	{
+		"name": "Park & Go",
+		"address": "Plaza España 2",
+		"percentage": 85,
+		"link_maps": "https://www.google.com/maps/place/40.423775,-3.712390"
+	},
+	{
+		"name": "EasyPark",
+		"address": "Calle Montera 78",
+		"percentage": 15,
+		"link_maps": "https://www.google.com/maps/place/40.419275,-3.702590"
+	},
+	{
+		"name": "Parking Centro",
+		"address": "Plaza Callao 1",
+		"percentage": 95,
+		"link_maps": "https://www.google.com/maps/place/40.419575,-3.705890"
+	}
+]
