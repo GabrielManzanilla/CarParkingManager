@@ -1,0 +1,65 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <main
+    class="w-full h-screen flex flex-col gap-4 p-4 justify-center items-center"
+    style="overflow-y: auto; overscroll-behavior: contain"
+  >
+    <div
+      class="w-full md:w-1/2 h-auto bg-indigo-700 flex justify-center items-center p-4 rounded-2xl"
+    >
+      <form id="form-login" class="flex flex-col gap-5 w-full">
+
+        <legend class="font-bold text-white text-2xl w-full text-center uppercase">INICIAR SECIÓN</legend>
+				<hr class="text-white">
+        <label for="">
+          <span class="text-white font-bold">Ingresa tu nombre de usuario</span>
+          <input
+            type="text"
+            id="username"
+            placeholder="Nombre usuario"
+            class="border rounded-lg text-lg px-3 py-1 w-full bg-white text-black placeholder:text-gray-800 focus:outline-none focus:ring-2 focus:ring-white"
+          />
+        </label>
+        <label for="">
+          <span class="text-white font-bold">Ingresa tu contraseña</span>
+          <input
+            type="password"
+            id="password"
+            placeholder="Contraseña"
+            class="border rounded-lg text-lg px-3 py-1 w-full bg-white text-black placeholder:text-gray-800 focus:outline-none focus:ring-2 focus:ring-white"
+          />
+        </label>
+				<input
+					type="submit"
+					value="Iniciar Sesión"
+					class="bg-indigo-200 text-indigo-800 font-bold px-4 py-2 mt-5 w-full rounded-lg cursor-pointer hover:bg-indigo-00 transition duration-200 uppercase"
+				/>
+      </form>
+    </div>
+  </main>
+  <script>
+    import users from '../mocks/users.json'
+    console.log(users)
+    document.getElementById('form-login')?.addEventListener('submit', (event)=>{
+      event.preventDefault()
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      console.log(username);
+      console.log(password);
+
+
+      const user = users.find(user => user.username === username && user.password === password);
+      if (!user) {
+        alert('Usuario o contraseña incorrectos')
+        return
+      }
+      else{
+        // localStorage.setItem('user', JSON.stringify(user.id))
+        window.location.href = `managers/${user.id}`
+      }
+    })
+  </script>
+</Layout>

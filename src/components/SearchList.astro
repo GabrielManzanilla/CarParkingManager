@@ -1,0 +1,19 @@
+---
+import Item from "./Item.astro";
+const { places } = Astro.props;
+---
+
+<div class="flex flex-col gap-4">
+	{
+		places.map((place) => {
+			<Item
+				name={place.name}
+				address={place.address}
+				totalSpots={place.totalSpots}
+				avaliableSpots={place.avaliableSpots}
+				link_maps={place.link_maps}
+				spaces={place.parking_zones}
+			/>;
+		})
+	}
+</div>

@@ -1,0 +1,61 @@
+[
+	{
+		"id": "0001",
+		"username": "JhonDoe",
+		"password": "Jhon1234",
+		"places": [
+			{
+				"name": "Parking Express",
+				"address": "Calle Princesa 45",
+				"link_maps": "https://www.google.com/maps/place/40.423475,-3.717890",
+				"percentage": 50,
+				"totalSpots": 100,
+				"avaliableSpots": 30,
+				"promedio_diario": 52,
+				"promedio_semanal": 14,
+				"promedio_mensual": 60,
+				"promedio_anual": 72,
+				"mejor_hora_dia": "12:00 PM",
+				"peor_hora_dia": "06:00 PM",
+				"mejor_dia_semana": "Viernes 25 Abril 2025",
+				"peor_dia_semana": "Martes 22 Abril 2025",
+				"mejor_dia_mes": "Lunes 1 Abril 2025",
+				"peor_dia_mes": "Lunes 16 Abril 2025",
+				"mejor_mes_anio": "Abril 2025",
+				"peor_mes_anio": "Febrero 2025"
+			},
+			{
+				"name": "Park Go",
+				"address": "Plaza España 2",
+				"percentage": 85,
+				"link_maps": "https://www.google.com/maps/place/40.423775,-3.712390",
+				"totalSpots": 100,
+				"avaliableSpots": 45,
+				"promedio_diario": 52,
+				"promedio_semanal": 14,
+				"promedio_mensual": 60,
+				"promedio_anual": 72,
+				"mejor_hora_dia": "12:00",
+				"mejor_dia_semana": "Viernes 25 Noviembre 2025",
+				"mejor_dia_mes": "Lunes 1 Noviembre 2025",
+				"mejor_mes_anio": "Noviembre 2025"
+			},
+			{
+				"name": "ParkFly",
+				"address": "Calle Vallehermoso 79",
+				"percentage": 70,
+				"link_maps": "https://www.google.com/maps/place/40.423975,-3.707890",
+				"totalSpots": 100,
+				"avaliableSpots": 10,
+				"promedio_diario": 52,
+				"promedio_semanal": 14,
+				"promedio_mensual": 60,
+				"promedio_anual": 72,
+				"mejor_hora_dia": "12:00",
+				"mejor_dia_semana": "Viernes 25 Noviembre 2025",
+				"mejor_dia_mes": "Lunes 1 Noviembre 2025",
+				"mejor_mes_anio": "Noviembre 2025"
+			}
+		]
+	}
+]

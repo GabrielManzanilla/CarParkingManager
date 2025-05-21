@@ -1,0 +1,58 @@
+---
+import CircularPercentage from "./CircularPercentage.astro";
+const {
+  id,
+  name,
+  address,
+  totalSpots,
+  availableSpots,
+  link_maps,
+  origin = "user",
+} = Astro.props;
+---
+
+<div
+  class="item border bg-white flex flex-row justify-between items-center p-4 shadow-md gap-3 w-full hover:cursor-pointer transform motion-safe:hover:scale-110
+  motion-safe:hover:z-10 duration-400 rounded-md"
+  data-id={id}
+  data-origin={origin}
+  id="clickable-card"
+>
+  <CircularPercentage availableSpots={availableSpots} totalSpots={totalSpots}/>
+  <div class="flex flex-col items-start flex-1">
+    <p class="text-md">{name}</p>
+    <p class="text-sm text-gray-500">
+      {address}
+    </p>
+  </div>
+  <div class=`flex flex-col items-center group relative ${link_maps? 'text-indigo-700' : 'text-gray-400 cursor-not-allowed'}`}>
+    <span class="material-symbols-outlined text-2xl">location_on</span>
+    {link_maps != undefined ? 
+    <a href={link_maps} class="text-center" title="Ver ubicación">Maps</a>
+     : 
+    <p class="text-center" title="Ver ubicación">Maps</p>
+    } 
+    <span
+      class=` absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity`
+    >
+      {link_maps? 'Ver Ubicacion': 'No disponible'}
+    </span>
+  </div>
+</div>
+<script>
+  document.addEventListener("click", (e) => {
+    const item = (e.target as HTMLElement).closest(".item");
+    if (item && (item as HTMLElement).dataset.id) {
+      const id  = encodeURIComponent((item as HTMLElement).dataset.id  || "");
+      const origin = (item as HTMLElement).dataset.origin || "user";
+      if (origin === "owner") {
+        // Get the current path (/managers/0001)
+        const currentPath = window.location.pathname ;
+        window.location.href =
+          window.location.origin + currentPath + `/${id }`;
+      } else if (origin === "user") {
+        window.location.href = `/details/${id }`;
+      }
+    }
+  });
+</script>

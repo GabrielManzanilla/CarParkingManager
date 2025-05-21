@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HeaderSection from "../components/HeaderSection.astro";
+import Item from "../components/Item.astro";
+import TagsFilters from "../components/TagsFilters.astro";
+
+import places_allowed from "../mocks/tag_filters.json";
+
+const places = await fetch("http://localhost:5001/Parkings/all").then((res) =>
+  res.json(),
+);
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+  <main class="p-4 width-full mt-6 overscroll-contain flex-1 overscroll-y">
+    <section class="mx-2">
+      <HeaderSection title="Lugares Cercanos" />
+      <div
+        id="near_places"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-3 p-1"
+      >
+        <!-- Aqui iran los lugares cercanos-->
+        {
+          places.map((place: any) => (
+            <Item
+              id={place.id}
+              name={place.name}
+              address={place.address}
+              totalSpots={place.totalSpots}
+              availableSpots={place.availableSpots}
+              link_maps={place.link_maps} ?? null
+              
+            />
+          ))
+        }
+      </div>
+    </section>
+  </main>
+</Layout>

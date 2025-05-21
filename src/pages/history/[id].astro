@@ -1,0 +1,149 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import HeaderSection from "../../components/HeaderSection.astro";
+
+export async function getStaticPaths() {
+	const all = await fetch("http://localhost:5001/Parkings/all");
+	const places = await all.json();
+
+	return places.map((parking: any) => ({
+		params: { id: String(parking.id) }, // ¡Importante convertir a string!
+	}));
+}
+
+const { id } = Astro.params;
+
+const res = await fetch(`http://localhost:5001/Parkings/${id}/history`);
+const place = await res.json();
+
+if (!place) {
+	throw new Error("Place not found");
+}
+---
+
+<Layout>
+	<main
+		class="p-4 w-full h-full gap-4 max-h-screen flex flex-1 flex-col mb-12 overflow-y-auto"
+	>
+		<section>
+			<HeaderSection title="Ultimos cambios" />
+			<div class="w-full flex flex-col">
+				<div class="bg-gray-100 rounded-lg w-full h-64 flex flex-row items-end justify-start p-4 gap-3 overflow-x-auto">
+					{place.map((history: any) => {
+						const percentage = (history.occupiedSpots / history.totalSpots) * 100;
+						const date = new Date(history.timestamp);
+						// Calcula la altura en píxeles (máximo 200px para un contenedor de h-64)
+						const barHeight = Math.max(20, (percentage / 100) * 200);
+						const formattedDate = date.toLocaleDateString("es-ES", {
+							day: "2-digit",
+							month: "2-digit"
+						});
+						
+						return (
+							<div class="flex flex-col items-center">
+								<div
+									class={`${percentage<50? 'bg-green-500': percentage<70?'bg-yellow-500':'bg-red-500'} w-16 rounded-t-md flex items-end justify-center text-white font-bold px-2 py-1`}
+									style={`height: ${barHeight}px;`}
+								>
+									{Math.round(percentage)}%
+								</div>
+								<div class="flex flex-col items-center text-xs mt-1">
+									<span>{date.toLocaleTimeString("es-ES", {
+										hour: "2-digit",
+										minute: "2-digit",
+									})}</span>
+									<span class="text-gray-500">{formattedDate}</span>
+								</div>
+							</div>
+						);
+					})}
+				</div>
+			</div>
+			<table
+				class="w-full table-auto border-collapse border border-gray-300 text-center rounded rounded-lg shadow-md"
+			>
+				<thead class="text-xs text-gray-200 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+					<th>Hora</th>
+					<th>Fecha</th>
+					<th>Lugares Ocupados</th>
+					<th>Lugares</th>
+				</thead>
+				<tbody class="bg-white divide-y divide-gray-300">
+					{place.map((history: any) => {
+						const date = new Date(history.timestamp);
+						const formattedDate = date.toLocaleDateString("es-ES");
+						const formattedTime = date.toLocaleTimeString("es-ES", {
+							hour: "2-digit",
+							minute: "2-digit",
+							hour12: true,
+						});
+						return (
+							<tr>
+								<td>{formattedTime}</td>
+								<td>{formattedDate}</td>
+								<td>{history.occupiedSpots}</td>
+								<td>{history.totalSpots}</td>
+							</tr>
+						);
+					})}
+				</tbody>
+			</table>
+		</section>
+
+		<style>
+			.progress-circle {
+				height: 85px;
+				position: relative;
+				aspect-ratio: 1;
+				max-height: 100px;
+			}
+
+			.circular-chart {
+				width: 100%;
+				height: 100%;
+				transform: rotate(-90deg); /* Para que comience en la parte superior */
+			}
+
+			.circle-bg {
+				fill: none;
+				stroke: #dcdcdc; /* Color del fondo */
+				stroke-width: 3.8;
+			}
+
+			.circle {
+				fill: none;
+				stroke: oklch(0.457 0.24 277.023); /* Color del progreso */
+				stroke-width: 3.8;
+				stroke-linecap: round; /* Extremos redondeados */
+				transition: stroke-dasharray 0.3s ease;
+			}
+
+			.percentage {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				font-size: 1.15rem;
+				font-weight: bold;
+				color: oklch(0.457 0.24 277.023);
+			}
+		</style>
+
+		<script>
+			// const placed = JSON.parse(
+			//   document.getElementById("zones-parking").dataset.zones,
+			// );
+			// const map = document.getElementById("map");
+			// placed.parking_zones.map((zone) => {
+			//   const element = document.createElement("div");
+			//   element.innerHTML = zone.name;
+			//   element.id = `zone-${zone.name}`;
+			//   element.classList.add("bg-indigo-500", "bg-opacity-0");
+			//   map.appendChild(element);
+			// });
+			// for (let child of map.children) {
+			//   (child as HTMLElement).hidden = true;
+			// }
+		</script>
+	</main>
+</Layout>

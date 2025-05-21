@@ -1,0 +1,14 @@
+---
+const {title} = Astro.props
+---
+
+				
+	<label class="bg-gray-300 has-checked:bg-gray-500 has-checked:text-white rounded-lg px-3 py-1 cursor-pointer flex flex-row">
+		<input
+			type="checkbox"
+			name="categories"
+			id={title}
+			class="appearance-none "
+		/>
+		{title}
+	</label>

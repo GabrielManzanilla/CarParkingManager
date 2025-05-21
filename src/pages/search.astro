@@ -1,0 +1,103 @@
+---
+import Layout from "../layouts/Layout.astro";
+import TagsFilters from "../components/TagsFilters.astro";
+
+import places_allowed from "../mocks/tag_filters.json";
+---
+
+<Layout>
+	<main class="p-4 width-full mt-6 overscroll-contain flex-1 overscroll-y">
+		<form id="form-search" action="" class="width-full flex flex-col gap-3">
+			<input
+				type="text"
+				name=""
+				id="target"
+				placeholder="Buscar"
+				class="border rounded-lg text-lg px-3 py-1 width-full"
+			/>
+			<div
+				class="flex flex-row overflow-x-auto overflow-ellipsis gap-3"
+				id="categories"
+			>
+				{places_allowed.map((tag) => <TagsFilters title={tag.title} />)}
+			</div>
+		</form>
+		<div id="places_filtered" class="flex flex-wrap"></div>
+	</main>
+</Layout>
+<script>
+	import near_places from "../mocks/near_places.json";
+	const form = document
+		.getElementById("form-search")
+		?.addEventListener("change", search);
+	const lista = document.getElementById("places_filtered");
+
+	const target = document.getElementById("target") as HTMLInputElement;
+
+	function search() {
+		let categories_selected = document.querySelectorAll(
+			'input[name="categories"]:checked',
+		);
+		let categories = Array.from(categories_selected).map(
+			(category) => category.id,
+		);
+		let search = target.value.trim();
+		let places_filtered;
+		if (search && categories.length > 0) {
+			let places_filtered_by_name = near_places.filter((place) => {
+				return place.name.toLowerCase().includes(search.toLowerCase());
+			});
+
+			places_filtered = places_filtered_by_name.filter((place) => {
+				return categories.find((category) => {
+					return place.categories.includes(category);
+				});
+			});
+		} else if (search) {
+			places_filtered = near_places.filter((place) => {
+				return place.name.toLowerCase().includes(search.toLowerCase());
+			});
+		} else if (categories.length > 0) {
+			places_filtered = near_places.filter((place) => {
+				return categories.find((category) => {
+					return place.categories.includes(category);
+				});
+			});
+		} else {
+			places_filtered = near_places;
+		}
+		if (lista) {
+			console.log(places_filtered);
+			places_filtered.map((place) => {
+				const item = document.createElement("div");
+				item.innerHTML = `<div
+												class="item border bg-white flex flex-row justify-between items-center p-4 shadow-md gap-3 w-full hover:cursor-pointer transform motion-safe:hover:scale-110
+												motion-safe:hover:z-10 duration-400 rounded-md"
+												data-name=${place.name}
+												data-origin={origin}
+												id="clickable-card"
+											>
+												<CircularPercentage
+													avaliableSpots=${place.avaliableSpots}
+													percentage=${(place.totalSpots / place.avaliableSpots) * 100}
+												/>
+												<div class="flex flex-col items-start flex-1">
+													<p class="text-md">${place.name}</p>
+													<p class="text-sm text-gray-500">
+														{address}
+													</p>
+												</div>
+												<div class="flex flex-col items-center text-indigo-700 group relative">
+													<span class="material-symbols-outlined text-2xl">location_on</span>
+													<a href=${place.link_maps} class="text-center" title="Ver ubicación">Maps</a>
+													<span
+														class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity"
+													>
+														Ver ubicación
+													</span>
+												</div>
+											</div>`;
+			});
+		}
+	}
+</script>

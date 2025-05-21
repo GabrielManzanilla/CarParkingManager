@@ -1,0 +1,327 @@
+[
+    {
+        "name": "Parking Central",
+        "categories": "Parque",
+        "address": "Av. Principal 123",
+        "link_maps": "https://www.google.com/maps/place/40.416775,-3.703790",
+        "totalSpots": 100,
+        "avaliableSpots": 10,
+        "parking_zones": [
+            {
+                "name": "Zona 1",
+                "in_use_slots": 5,
+                "totalSpots": 15
+            },
+            {
+                "name": "Zona 2",
+                "in_use_slots": 4,
+                "totalSpots": 15
+            },
+            {
+                "name": "Zona 3",
+                "in_use_slots": 7,
+                "totalSpots": 10
+            }
+        ]
+    },
+    {
+        "name": "Banco Nacional",
+        "categories": "Banco",
+        "address": "Calle 45 #678",
+        "link_maps": "https://www.google.com/maps/place/40.417000,-3.704000",
+        "totalSpots": 50,
+        "avaliableSpots": 20,
+        "parking_zones": [
+            {
+                "name": "Zona A",
+                "in_use_slots": 10,
+                "totalSpots": 20
+            },
+            {
+                "name": "Zona B",
+                "in_use_slots": 5,
+                "totalSpots": 15
+            }
+        ]
+    },
+    {
+        "name": "Hospital General",
+        "categories": "Hospital",
+        "address": "Av. Salud 789",
+        "link_maps": "https://www.google.com/maps/place/40.418000,-3.705000",
+        "totalSpots": 150,
+        "avaliableSpots": 30,
+        "parking_zones": [
+            {
+                "name": "Sector 1",
+                "in_use_slots": 20,
+                "totalSpots": 50
+            },
+            {
+                "name": "Sector 2",
+                "in_use_slots": 40,
+                "totalSpots": 50
+            }
+        ]
+    },
+    {
+        "name": "Colegio Central",
+        "categories": "Escuela",
+        "address": "Calle Educación 101",
+        "link_maps": "https://www.google.com/maps/place/40.419000,-3.706000",
+        "totalSpots": 80,
+        "avaliableSpots": 25,
+        "parking_zones": [
+            {
+                "name": "Zona Norte",
+                "in_use_slots": 10,
+                "totalSpots": 30
+            },
+            {
+                "name": "Zona Sur",
+                "in_use_slots": 15,
+                "totalSpots": 30
+            }
+        ]
+    },
+    {
+        "name": "Supermercado El Ahorro",
+        "categories": "Supermercado",
+        "address": "Av. Comercio 555",
+        "link_maps": "https://www.google.com/maps/place/40.420000,-3.707000",
+        "totalSpots": 120,
+        "avaliableSpots": 40,
+        "parking_zones": [
+            {
+                "name": "Zona Clientes",
+                "in_use_slots": 30,
+                "totalSpots": 60
+            },
+            {
+                "name": "Zona Empleados",
+                "in_use_slots": 10,
+                "totalSpots": 20
+            }
+        ]
+    },
+    {
+        "name": "Farmacia Salud Plus",
+        "categories": "Farmacia",
+        "address": "Calle Bienestar 303",
+        "link_maps": "https://www.google.com/maps/place/40.421000,-3.708000",
+        "totalSpots": 20,
+        "avaliableSpots": 5,
+        "parking_zones": [
+            {
+                "name": "Zona Única",
+                "in_use_slots": 15,
+                "totalSpots": 20
+            }
+        ]
+    },
+    {
+        "name": "Plaza Central",
+        "categories": "Plaza",
+        "address": "Plaza Mayor 1",
+        "link_maps": "https://www.google.com/maps/place/40.422000,-3.709000",
+        "totalSpots": 200,
+        "avaliableSpots": 50,
+        "parking_zones": [
+            {
+                "name": "Sector Norte",
+                "in_use_slots": 40,
+                "totalSpots": 100
+            },
+            {
+                "name": "Sector Sur",
+                "in_use_slots": 30,
+                "totalSpots": 100
+            }
+        ]
+    },
+    {
+        "name": "Empresa GlobalTech",
+        "categories": "Empresa",
+        "address": "Av. Tecnología 456",
+        "link_maps": "https://www.google.com/maps/place/40.423000,-3.710000",
+        "totalSpots": 300,
+        "avaliableSpots": 100,
+        "parking_zones": [
+            {
+                "name": "Zona Ejecutivos",
+                "in_use_slots": 50,
+                "totalSpots": 100
+            },
+            {
+                "name": "Zona Visitantes",
+                "in_use_slots": 30,
+                "totalSpots": 100
+            },
+            {
+                "name": "Zona Personal",
+                "in_use_slots": 70,
+                "totalSpots": 100
+            }
+        ]
+    },
+    {
+        "name": "Lugar 1",
+        "categories": "Escuela",
+        "address": "Calle Falsa 1",
+        "link_maps": "https://www.google.com/maps/place/40.204953,-3.529153",
+        "totalSpots": 83,
+        "avaliableSpots": 23,
+        "parking_zones": [
+            {
+                "name": "Zona B",
+                "in_use_slots": 24,
+                "totalSpots": 73
+            }
+        ]
+    },
+    {
+        "name": "Lugar 2",
+        "categories": "Hospital",
+        "address": "Calle Falsa 2",
+        "link_maps": "https://www.google.com/maps/place/40.233748,-3.513428",
+        "totalSpots": 101,
+        "avaliableSpots": 94,
+        "parking_zones": [
+            {
+                "name": "Sector 1",
+                "in_use_slots": 40,
+                "totalSpots": 57
+            }
+        ]
+    },
+    {
+        "name": "Lugar 3",
+        "categories": "Farmacia",
+        "address": "Calle Falsa 3",
+        "link_maps": "https://www.google.com/maps/place/40.518238,-3.820166",
+        "totalSpots": 113,
+        "avaliableSpots": 104,
+        "parking_zones": [
+            {
+                "name": "Zona B",
+                "in_use_slots": 18,
+                "totalSpots": 56
+            }
+        ]
+    },
+    {
+        "name": "Lugar 4",
+        "categories": "Hospital",
+        "address": "Calle Falsa 4",
+        "link_maps": "https://www.google.com/maps/place/40.131389,-3.584915",
+        "totalSpots": 108,
+        "avaliableSpots": 89,
+        "parking_zones": [
+            {
+                "name": "Zona C",
+                "in_use_slots": 40,
+                "totalSpots": 74
+            }
+        ]
+    },
+    {
+        "name": "Lugar 5",
+        "categories": "Farmacia",
+        "address": "Calle Falsa 5",
+        "link_maps": "https://www.google.com/maps/place/40.953113,-3.626461",
+        "totalSpots": 50,
+        "avaliableSpots": 21,
+        "parking_zones": [
+            {
+                "name": "Zona Este",
+                "in_use_slots": 8,
+                "totalSpots": 10
+            }
+        ]
+    },
+    {
+        "name": "Lugar 6",
+        "categories": "Hospital",
+        "address": "Calle Falsa 6",
+        "link_maps": "https://www.google.com/maps/place/40.283027,-3.113005",
+        "totalSpots": 121,
+        "avaliableSpots": 24,
+        "parking_zones": [
+            {
+                "name": "Zona C",
+                "in_use_slots": 16,
+                "totalSpots": 29
+            }
+        ]
+    },
+    {
+        "name": "Lugar 7",
+        "categories": "Hospital",
+        "address": "Calle Falsa 7",
+        "link_maps": "https://www.google.com/maps/place/40.266781,-3.150649",
+        "totalSpots": 243,
+        "avaliableSpots": 230,
+        "parking_zones": [
+            {
+                "name": "Sector 3",
+                "in_use_slots": 193,
+                "totalSpots": 240
+            }
+        ]
+    },
+    {
+        "name": "Lugar 8",
+        "categories": "Banco",
+        "address": "Calle Falsa 8",
+        "link_maps": "https://www.google.com/maps/place/40.612295,-3.709749",
+        "totalSpots": 264,
+        "avaliableSpots": 203,
+        "parking_zones": [
+            {
+                "name": "Zona C",
+                "in_use_slots": 4,
+                "totalSpots": 12
+            }
+        ]
+    },
+    {
+        "name": "Lugar 9",
+        "categories": "Farmacia",
+        "address": "Calle Falsa 9",
+        "link_maps": "https://www.google.com/maps/place/40.537357,-3.546649",
+        "totalSpots": 275,
+        "avaliableSpots": 235,
+        "parking_zones": [
+            {
+                "name": "Zona C",
+                "in_use_slots": 47,
+                "totalSpots": 136
+            },
+            {
+                "name": "Zona Este",
+                "in_use_slots": 22,
+                "totalSpots": 22
+            }
+        ]
+    },
+    {
+        "name": "Lugar 10",
+        "categories": "Hospital",
+        "address": "Calle Falsa 10",
+        "link_maps": "https://www.google.com/maps/place/40.980483,-3.200906",
+        "totalSpots": 214,
+        "avaliableSpots": 135,
+        "parking_zones": [
+            {
+                "name": "Sector 1",
+                "in_use_slots": 2,
+                "totalSpots": 43
+            },
+            {
+                "name": "Zona Norte",
+                "in_use_slots": 47,
+                "totalSpots": 87
+            }
+        ]
+    }
+]

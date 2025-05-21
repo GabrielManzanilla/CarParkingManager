@@ -1,0 +1,58 @@
+---
+const { availableSpots, totalSpots = 100 } = Astro.props;
+const percentage = ((availableSpots / totalSpots) * 100).toFixed(1);
+---
+
+<div class="progress-circle">
+  <svg viewBox="0 0 36 36" class="circular-chart">
+    <!-- Fondo gris -->
+    <path class="circle-bg" d="M18 2.0845
+						 a 15.9155 15.9155 0 1 1 -0.0001 0"
+    ></path>
+    <!-- Círculo de progreso -->
+    <path
+      class="circle"
+      stroke-dasharray=`${percentage}, 100`
+      d="M18 2.0845
+						 a 15.9155 15.9155 0 1 1 -0.0001 0"></path>
+  </svg>
+  <div class="percentage">{percentage}%</div>
+</div>
+<style>
+  .progress-circle {
+    height: 85px;
+    position: relative;
+    aspect-ratio: 1;
+    max-height: 100px;
+  }
+
+  .circular-chart {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg); /* Para que comience en la parte superior */
+  }
+
+  .circle-bg {
+    fill: none;
+    stroke: #dcdcdc; /* Color del fondo */
+    stroke-width: 3.8;
+  }
+
+  .circle {
+    fill: none;
+    stroke: oklch(0.457 0.24 277.023); /* Color del progreso */
+    stroke-width: 3.8;
+    stroke-linecap: round; /* Extremos redondeados */
+    transition: stroke-dasharray 0.3s ease;
+  }
+
+  .percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: oklch(0.457 0.24 277.023);
+  }
+</style>

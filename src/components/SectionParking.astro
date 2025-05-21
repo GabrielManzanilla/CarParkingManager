@@ -1,0 +1,35 @@
+---
+const { label = 'A-1', current = 1, total = 7 } = Astro.props;
+const progressPercentage = (current / total) * 100;
+---
+
+<button is="section-parking" data-element={label} class="group relative flex items-center space-x-2 bg-gray-300 focus:bg-indigo-500 p-3 rounded-md cursor-pointer transition-all">
+  <span class="font-bold label">{label}</span>
+
+  <div class="w-full h-6 group-focus:bg-gray-300 bg-white rounded-lg overflow-hidden">
+    <div class="progress h-full bg-indigo-600 group-focus:bg-gray-800 rounded-md" style={`width: ${progressPercentage}%`}></div>
+  </div>
+
+  <div class="absolute w-full flex items-center justify-center">
+    <span class=`group-focus:font-bold ${progressPercentage<50?'text-black':'text-white'}`>{current}/{total}</span>
+  </div>
+</button>
+
+<script>
+  class SectionParking extends HTMLButtonElement {
+    constructor(){
+      super();
+    }
+    connectedCallback() {
+      const map = document.getElementById('map');
+      this.addEventListener('click', () => {
+        for(let child of map.children?){
+          (child as HTMLElement).hidden = true
+        }
+        map.children[`zone-${this.dataset.element}`].hidden = false;
+      });
+    }
+  }
+
+  customElements.define('section-parking', SectionParking, { extends: 'button' });
+</script>
