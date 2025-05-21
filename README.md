@@ -10,6 +10,8 @@ This project demonstrates dynamic routing in Astro using NPM and TypeScript.
 │   │   ├── index.astro
 │   │   └── details/
 │   │       └── [id].astro
+│   │   └── history/
+│   │       └── [id].astro
 │   ├── components/
 │   └── layouts/
 ├── package.json
