@@ -22,8 +22,8 @@ if (!place) {
 ---
 
 <Layout>
-	<main
-		class="p-4 w-full h-full gap-4 max-h-screen flex flex-1 flex-col mb-12 overflow-y-auto"
+	<div
+		class="p-4 w-full gap-4 max-h-screen flex flex-1 flex-col mb-12"
 	>
 		<section>
 			<HeaderSection title="Ultimos cambios" />
@@ -60,7 +60,7 @@ if (!place) {
 				</div>
 			</div>
 			<table
-				class="w-full table-auto border-collapse border border-gray-300 text-center rounded rounded-lg shadow-md"
+				class="w-full table-auto border-collapse border border-gray-300 text-center rounded-lg shadow-md"
 			>
 				<thead class="text-xs text-gray-200 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
 					<th>Hora</th>
@@ -89,61 +89,5 @@ if (!place) {
 				</tbody>
 			</table>
 		</section>
-
-		<style>
-			.progress-circle {
-				height: 85px;
-				position: relative;
-				aspect-ratio: 1;
-				max-height: 100px;
-			}
-
-			.circular-chart {
-				width: 100%;
-				height: 100%;
-				transform: rotate(-90deg); /* Para que comience en la parte superior */
-			}
-
-			.circle-bg {
-				fill: none;
-				stroke: #dcdcdc; /* Color del fondo */
-				stroke-width: 3.8;
-			}
-
-			.circle {
-				fill: none;
-				stroke: oklch(0.457 0.24 277.023); /* Color del progreso */
-				stroke-width: 3.8;
-				stroke-linecap: round; /* Extremos redondeados */
-				transition: stroke-dasharray 0.3s ease;
-			}
-
-			.percentage {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				font-size: 1.15rem;
-				font-weight: bold;
-				color: oklch(0.457 0.24 277.023);
-			}
-		</style>
-
-		<script>
-			// const placed = JSON.parse(
-			//   document.getElementById("zones-parking").dataset.zones,
-			// );
-			// const map = document.getElementById("map");
-			// placed.parking_zones.map((zone) => {
-			//   const element = document.createElement("div");
-			//   element.innerHTML = zone.name;
-			//   element.id = `zone-${zone.name}`;
-			//   element.classList.add("bg-indigo-500", "bg-opacity-0");
-			//   map.appendChild(element);
-			// });
-			// for (let child of map.children) {
-			//   (child as HTMLElement).hidden = true;
-			// }
-		</script>
-	</main>
+	</div>
 </Layout>
