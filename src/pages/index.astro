@@ -6,7 +6,7 @@ import TagsFilters from "../components/TagsFilters.astro";
 
 import places_allowed from "../mocks/tag_filters.json";
 
-const places = await fetch("http://localhost:5001/Parkings/all").then((res) =>
+const places = await fetch("http://10.64.133.120:5001/Parkings/all").then((res) =>
   res.json(),
 );
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build

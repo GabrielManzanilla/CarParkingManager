@@ -7,7 +7,7 @@ import CircularPercentage from "../../components/CircularPercentage.astro";
 import { date } from "astro:schema";
 
 export async function getStaticPaths() {
-  const all = await fetch("http://localhost:5001/Parkings/all");
+  const all = await fetch("http://10.64.133.120:5001/Parkings/all");
   const places = await all.json();
 
   return places.map((parking: any) => ({
@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 
 const { id } = Astro.params;
 
-const res = await fetch(`http://localhost:5001/Parkings/${id}`);
+const res = await fetch(`http://10.64.133.120:5001/Parkings/${id}`);
 const place = await res.json();
 
 if (!place) {
